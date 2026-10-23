@@ -9,7 +9,7 @@ This engineering case study details the deployment of an automated validation fr
 The electrical actuation module utilizes a Low-Side N-Channel MOSFET switching network configured to modulate high-power subsystems at a rigid frequency of 50Hz.
 
 ### Circuit Schematic
-![LTspice Circuit Schematic](image_74k6Wo.png)
+![LTspice Circuit Schematic](TP_PULSE.png)
 
 ### Mathematical Parameters:
 * **System Input Rails:** V2 = 12.0 V | R1 = 24 Ohm
@@ -21,7 +21,7 @@ The continuous simulation logging tracks the switching voltage profile at the ac
 
 When the NMOS transistor gate turns ON (V1 = 5V), current penetrates the loop, driving the drain voltage down to a stable low-state clamping plateau of exactly **11.36V** due to internal forward diode drops (D1) and series loop impedances. When the gate turns OFF (V1 = 0V), the rail returns smoothly to its 12.0V steady-state baseline.
 
-![LTspice Transient Pulse Tracking](image_Aq1U7A.png)
+![LTspice Transient Pulse Tracking](v_tp_pulse.png)
 
 ---
 
@@ -32,13 +32,25 @@ The time-variant electrical ON-state directly induces current-driven thermal dis
 ### Ansys Zemax Workspace Architecture & Lens Data Editor
 Optical characterizations are executed in sequential ray-tracing mode, using an explicit single-element lens setup extracted directly from the physical workstation database:
 
-![Ansys Zemax Control Interface](image_H2CYl8.png)
+![Ansys Zemax Control Interface](Lens_Data_Camelot.png)
 
 ### Physical Substrate Specifications:
 * **Lens Material Layer:** N-BK7 Crown Glass (Locked at Surface 1 - STOP Node).
 * **Lens Center Thickness:** Exactly 5.000 mm.
 * **Back Focal Length (BFL):** Exactly 47.000 mm spacing separating the optical exit aperture from the active FPA image plane.
 * **Surface Radii Vectors:** Symmetric Achromatic geometry configuration (R1 = 50.000 mm, R2 = -50.000 mm).
+
+### Hardware Spatial Boundaries & Resolution Limits
+The underlying sensor utilizes a 3.45μm physical pixel pitch, establishing a strict upper resolution boundary calculated via the Nyquist theorem:
+* **Nyquist Limit:** Approximately 144.92 cycles/mm
+
+The spatial frequency analysis is conducted up to 150 cycles/mm. The target laboratory inspection node for ATP verification is set at exactly **45.0 cycles/mm**, with a strict pass/fail contrast ratio threshold of **+40.0% (Modulus of the OTF = 0.4)**.
+
+### FFT MTF Degradation Profiles
+* **Focal Plane Settled State (OFF State Simulation):** Represents the N-BK7 optical element operating at optimal thermal equilibrium.
+* **Transient Aberration Profile (ON State Simulation):** Captures severe wavefront errors induced by the 50Hz switching pulse. At the core inspection node (45.0 lp/mm), the Modulus of the OTF collapses significantly close to zero, violating system compliance.
+
+![Ansys Zemax Polychromatic Diffraction MTF Curve](image_ttNhnV.png)
 ---
 
 ## 3. System Execution & Runtime Telemetry Logs
@@ -97,8 +109,8 @@ Ensure your environment is configured with the required Python libraries:
 `pip install torch numpy matplotlib`
 
 ### 5.2 Web Download Protocol
-* 🔌 **Circuit Simulation Database:** [Download Camelot_Driver.asc](https://github.com) *(LTspice Circuit Netlist)*
-* 🔬 **Optical Design Project File:** [Download Camelot.zmx](https://github.com) *(Ansys Zemax OpticStudio Source)*
+* 🔌 **Circuit Simulation Database:** [Download Camelot_Driver.asc](https://githubusercontent.com) *(LTspice Circuit Netlist)*
+* 🔬 **Optical Design Project File:** [Download Camelot.zmx](https://githubusercontent.com) *(Ansys Zemax OpticStudio Source)*
 
 ### 5.3 Local Execution
 1. Open your Anaconda Prompt or command terminal.
@@ -110,15 +122,3 @@ Ensure your environment is configured with the required Python libraries:
 **Developer/Physicist:** Genady Tabachnik  
 **Validation Domain:** Post-Silicon Electro-Optical Integration & Co-Simulation Architecture  
 **Status:** Verification Matrix Completed. Systems Logged.
-
-### Hardware Spatial Boundaries & Resolution Limits
-The underlying sensor utilizes a 3.45μm physical pixel pitch, establishing a strict upper resolution boundary calculated via the Nyquist theorem:
-* **Nyquist Limit:** Approximately 144.92 cycles/mm
-
-The spatial frequency analysis is conducted up to 150 cycles/mm. The target laboratory inspection node for ATP verification is set at exactly **45.0 cycles/mm**, with a strict pass/fail contrast ratio threshold of **+40.0% (Modulus of the OTF = 0.4)**.
-
-### FFT MTF Degradation Profiles
-* **Focal Plane Settled State (OFF State Simulation):** Represents the N-BK7 optical element operating at optimal thermal equilibrium.
-* **Transient Aberration Profile (ON State Simulation):** Captures severe wavefront errors induced by the 50Hz switching pulse. At the core inspection node (45.0 lp/mm), the Modulus of the OTF collapses significantly close to zero, violating system compliance.
-
-![Ansys Zemax Polychromatic Diffraction MTF Curve](image_ttNhnV.png)
