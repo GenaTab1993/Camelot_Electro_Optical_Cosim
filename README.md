@@ -111,11 +111,11 @@ Ensure your environment is configured with the required Python libraries:
 ### 5.2 Web Download Protocol
 
 * 🔌 **Circuit Simulation Database:**  
-  [Download Camelot_Driver.asc](https://github.com)  
+  [Download Camelot_Driver.asc](https://github.com/GenaTab1993/Camelot_Electro_Optical_Cosim/blob/main/Camelot_Driver.asc)  
   *(LTspice Circuit Netlist)*
 
 * 🔬 **Optical Design Project File:**  
-  [Download Camelot.zmx](https://github.com)  
+  [Download Camelot.zmx](https://github.com/GenaTab1993/Camelot_Electro_Optical_Cosim/blob/main/Camelot.zmx)  
   *(Ansys Zemax OpticStudio Source)*
 
 ### 5.3 Local Execution
