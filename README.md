@@ -50,7 +50,7 @@ The spatial frequency analysis is conducted up to 150 cycles/mm. The target labo
 * **Focal Plane Settled State (OFF State Simulation):** Represents the N-BK7 optical element operating at optimal thermal equilibrium.
 * **Transient Aberration Profile (ON State Simulation):** Captures severe wavefront errors induced by the 50Hz switching pulse. At the core inspection node (45.0 lp/mm), the Modulus of the OTF collapses significantly close to zero, violating system compliance.
 
-![Ansys Zemax Polychromatic Diffraction MTF Curve](FFTMTF.png)
+![Ansys Zemax Polychromatic Diffraction MTF Curve](FFTMTF.bmp)
 ---
 
 ## 3. System Execution & Runtime Telemetry Logs
