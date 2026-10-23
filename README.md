@@ -109,8 +109,14 @@ Ensure your environment is configured with the required Python libraries:
 `pip install torch numpy matplotlib`
 
 ### 5.2 Web Download Protocol
-* 🔌 **Circuit Simulation Database:** [Download Camelot_Driver.asc](https://github.com) *(LTspice Circuit Netlist)*
-* 🔬 **Optical Design Project File:** [Download Camelot.zmx](https://github.com) *(Ansys Zemax OpticStudio Source)*
+
+* 🔌 **Circuit Simulation Database:**  
+  [Download Camelot_Driver.asc](https://github.com)  
+  *(LTspice Circuit Netlist)*
+
+* 🔬 **Optical Design Project File:**  
+  [Download Camelot.zmx](https://github.com)  
+  *(Ansys Zemax OpticStudio Source)*
 
 ### 5.3 Local Execution
 1. Open your Anaconda Prompt or command terminal.
