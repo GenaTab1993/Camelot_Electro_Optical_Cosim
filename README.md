@@ -21,7 +21,7 @@ The continuous simulation logging tracks the switching voltage profile at the ac
 
 When the NMOS transistor gate turns ON (V1 = 5V), current penetrates the loop, driving the drain voltage down to a stable low-state clamping plateau of exactly **11.36V** due to internal forward diode drops (D1) and series loop impedances. When the gate turns OFF (V1 = 0V), the rail returns smoothly to its 12.0V steady-state baseline.
 
-![LTspice Transient Pulse Tracking](v_tp_pulse.png)
+![LTspice Transient Pulse Tracking](V(tp_pulse).png)
 
 ---
 
