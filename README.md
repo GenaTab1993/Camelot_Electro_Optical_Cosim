@@ -128,3 +128,7 @@ Ensure your environment is configured with the required Python libraries:
 **Developer/Physicist:** Genady Tabachnik  
 **Validation Domain:** Post-Silicon Electro-Optical Integration & Co-Simulation Architecture  
 **Status:** Verification Matrix Completed. Systems Logged.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
